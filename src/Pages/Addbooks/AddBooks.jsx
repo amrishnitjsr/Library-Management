@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addBook } from '../../utils/bookSlice';
@@ -30,17 +30,17 @@ const AddBooks = () => {
     const { title, author, image, description } = bookData;
 
     if (!title || !author || !image || !description) {
-      setError('Please ensure all fields are entered');
+      setError('Please ensure all fields are entered.');
       return;
     }
 
     const newBook = {
       id: nanoid(),
-      title: bookData.title,
-      img: URL.createObjectURL(bookData.image),
+      title,
+      img: URL.createObjectURL(image),
       type: bookData.type,
-      author: bookData.author,
-      description: bookData.description,
+      author,
+      description,
       isNew: true,
     };
 
